@@ -10,12 +10,13 @@ class ParticleScene extends Scene2D {
   load(appRuntime) {
     super.load(appRuntime);
     // create particle system
-    this.particleSystem = new ParticleSystem2D({
-      position: [350, 350],
+    let config = {
+      position: [100, 100],
+      size: 5,
       velocityRangeX: [-1, 1],
       velocityRangeY: [-1, 1],
-      size: 5,
-    });
+    };
+    this.particleSystem = new ParticleSystem2D(config);
     // this.particleSystem.createParticles();
   }
 
