@@ -2,7 +2,9 @@ import {logger} from "../utils.js";
 import {Program, SHADER_TYPE} from "./program.js";
 
 const DEFAULT_SHADERS = Object.freeze({
-    "color": {VERTEX: '../shaders/color.vert', FRAGMENT: '../shaders/color.frag'}
+    "color": {VERTEX: './shaders/color.vert', FRAGMENT: './shaders/color.frag'},
+    "grid": {VERTEX: './shaders/grid.vert', FRAGMENT: './shaders/grid.frag', VERSION: '#version 300 es'},
+    "grid_su": {VERTEX: './shaders/grid_su.vert', FRAGMENT: './shaders/grid_su.frag', VERSION: '#version 300 es'}
 });
 
 // automatically prepended precision header for all fragment shaders
@@ -54,7 +56,8 @@ class ShaderLoader {
                     (response) => {
                         response.text().then((shader) => {
                             logger.log(`load shader: ${shaderName}`);
-                            shaders[shaderType] = shaderType === 'FRAGMENT' ? PRECISION_HEADER + shader : shader;
+                            let version = shaderInfo['VERSION'] || '';
+                            shaders[shaderType] = version + (shaderType === 'FRAGMENT' ? PRECISION_HEADER + shader : shader);
                             decrementPendingImportCounter();
                         }).catch(
                             (error) => {
@@ -99,3 +102,4 @@ class ShaderLoader {
 }
 
 export default ShaderLoader;
+

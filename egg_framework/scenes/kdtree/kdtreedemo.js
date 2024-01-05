@@ -37,7 +37,7 @@ function drawKdTree(context, treeNode){
 
 class KdTreeDemo {
 
-    constructor(width, height, numberOfPoints = 100, numberOfPointsToSelect= 10){
+    constructor(width, height, numberOfPoints = 10, numberOfPointsToSelect= 3){
         this.width = width;
         this.height = height;
         this.numberOfPoints = numberOfPoints;
@@ -46,7 +46,7 @@ class KdTreeDemo {
         this.pointsToSelect = [];
         this.linearSearch = undefined;
         this.kdTree = undefined;
-        this.drawTree = false;
+        this.drawTree = true;
         this.reset();
     }
 
@@ -57,7 +57,7 @@ class KdTreeDemo {
         console.timeEnd('linear search');
 
         console.time('k-d Tree search');
-        let nn2 = undefined; //this.kdTree.findNearestNeighbor(x,y);
+        let nn2 = this.kdTree.findNearestNeighbor(x,y);
         console.timeEnd('k-d Tree search');
 
         console.assert(nn1 === nn2, 'the two founded objects are not identical');

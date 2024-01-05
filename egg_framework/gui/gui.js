@@ -83,7 +83,7 @@ class GuiController{
 
         let gl;
         try {
-            gl = canvas3D.getContext('webgl', glOptions) || canvas3D.getContext('webgl2', glOptions);
+            gl = canvas3D.getContext('webgl2', glOptions) || canvas3D.getContext('webgl', glOptions);
         }
         catch (ex) {
             logger.fatal('could not create WebGL rendering context...', ex);

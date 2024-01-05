@@ -28,10 +28,10 @@ class ControlPointHandler {
         let qw = this.canvasWidth / 4;
         let qh = this.canvasHeight / 4;
         this.controlPoints = [
-            new ControlPoint(vec2.fromValues(qw * 2, qh), controlPointSize, 'green'),
-            new ControlPoint(vec2.fromValues(qw, qh * 2), controlPointSize, 'red'),
-            new ControlPoint(vec2.fromValues(qw * 3, qh * 2), controlPointSize, 'magenta'),
-            new ControlPoint(vec2.fromValues( qw * 2, qh * 3), controlPointSize, 'blue'),
+            new ControlPoint(vec2.fromValues(qw * 2 - qw, qh * 3), controlPointSize, 'green'),
+            new ControlPoint(vec2.fromValues(qw + qw /2, qh * 2), controlPointSize, 'red'),
+            new ControlPoint(vec2.fromValues(qw * 3 - qw /2, qh * 2), controlPointSize, 'magenta'),
+            new ControlPoint(vec2.fromValues( qw * 2 + qw , qh * 3), controlPointSize, 'blue'),
         ];
 
         this.setupMouseController(ctx);

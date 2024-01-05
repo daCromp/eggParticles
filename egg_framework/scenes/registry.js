@@ -7,6 +7,9 @@ const SCENES = {
     'particle': './particles/app.js',
     'kdTree': './kdtree/app.js',
     'bezier': './bezier/app.js',
+    'gizmo': './gizmo/app.js',
+    'bob': './bob/app.js',
+    'vertex_su': './vertex_su/app.js',
 };
 
 class Registry {
