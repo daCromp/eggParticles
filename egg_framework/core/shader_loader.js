@@ -4,7 +4,9 @@ import {Program, SHADER_TYPE} from "./program.js";
 const DEFAULT_SHADERS = Object.freeze({
     "color": {VERTEX: './shaders/color.vert', FRAGMENT: './shaders/color.frag'},
     "grid": {VERTEX: './shaders/grid.vert', FRAGMENT: './shaders/grid.frag', VERSION: '#version 300 es'},
-    "grid_su": {VERTEX: './shaders/grid_su.vert', FRAGMENT: './shaders/grid_su.frag', VERSION: '#version 300 es'}
+    "grid_su": {VERTEX: './shaders/grid_su.vert', FRAGMENT: './shaders/grid_su.frag', VERSION: '#version 300 es'},
+    "phong": {VERTEX: './shaders/phong.vert', FRAGMENT: './shaders/phong.frag'}
+
 });
 
 // automatically prepended precision header for all fragment shaders
@@ -96,6 +98,10 @@ class ShaderLoader {
         if(!this._programs[shaderName]){
             this._programs[shaderName] = new Program(glContext, shaderName, this._importedShaders[shaderName]);
         }
+        return this._programs[shaderName];
+    }
+
+    getProgram(shaderName){
         return this._programs[shaderName];
     }
 

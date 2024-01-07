@@ -10,6 +10,7 @@ const SCENES = {
     'gizmo': './gizmo/app.js',
     'bob': './bob/app.js',
     'vertex_su': './vertex_su/app.js',
+    'phong': './phong/app.js',
 };
 
 class Registry {

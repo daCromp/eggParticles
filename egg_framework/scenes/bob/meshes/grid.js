@@ -9,6 +9,8 @@ class Grid extends Mesh {
         let colors = [];
         let test = true;
 
+        let colorFactor = 0;
+
         for (let u = 0; u < uSamples; u++) {
             for (let v = 0; v < vSamples; v++) {
                 let uRange = uSpace[1] - uSpace[0]; // -4
@@ -17,8 +19,10 @@ class Grid extends Mesh {
                 vertices.push(vSpace[0] + (v / (vSamples - 1)) * vRange);  
                 vertices.push(0);
 
-                colors.push(1,1,1,1)
-
+                colorFactor += 1 / (uSamples * vSamples);
+                let colorFactorReverse = 1 - colorFactor;
+                
+                colors.push(colorFactorReverse,colorFactor,colorFactorReverse,1)
             }
         }
 
@@ -34,24 +38,11 @@ class Grid extends Mesh {
         }
 
 
-
-        // console.log(vertices)
-
-        // indices.push(5,1,0);
-        // indices.push(5,6,1);
-
-        // indices.push(6,2,1);
-        // indices.push(6,7,2);
-
-        // console.log(indices)
-
-
-
         super(gl, {
             positions: vertices,
             indices: indices,
             colors: colors,
-            primitiveType: gl.LINE_LOOP
+            primitiveType: gl.TRIANGLES
         });
     }
 }
