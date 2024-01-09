@@ -7,7 +7,6 @@ class Grid extends Mesh {
         let vertices = [];
         let indices = [];
         let colors = [];
-        let test = true;
 
         let colorFactor = 0;
 
@@ -42,7 +41,7 @@ class Grid extends Mesh {
             positions: vertices,
             indices: indices,
             colors: colors,
-            primitiveType: gl.TRIANGLES
+            primitiveType: gl.LINES_STRIP
         });
     }
 }

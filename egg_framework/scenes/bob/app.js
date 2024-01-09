@@ -45,11 +45,9 @@ class BobScene extends Scene3D {
     update(deltaTime) {
         super.update(deltaTime);
 
-
         this._programm.setUniform("verschiebung", this.verschiebung += 0.02);
 
         // ToDo animation and transformation of the waves and the boat
-
     }
 
 }
