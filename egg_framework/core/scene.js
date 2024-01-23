@@ -68,7 +68,7 @@ class Scene3D extends Scene {
         this._camera = camera;
     }
 
-    bind(program) {
+    bind(model, program) {
 
     }
 

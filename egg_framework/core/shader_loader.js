@@ -5,7 +5,8 @@ const DEFAULT_SHADERS = Object.freeze({
     "color": {VERTEX: './shaders/color.vert', FRAGMENT: './shaders/color.frag'},
     "grid": {VERTEX: './shaders/grid.vert', FRAGMENT: './shaders/grid.frag', VERSION: '#version 300 es'},
     "grid_su": {VERTEX: './shaders/grid_su.vert', FRAGMENT: './shaders/grid_su.frag', VERSION: '#version 300 es'},
-    "phong": {VERTEX: './shaders/phong.vert', FRAGMENT: './shaders/phong.frag'}
+    "phong": {VERTEX: './shaders/phong.vert', FRAGMENT: './shaders/phong.frag'},
+    "ente": {VERTEX: './shaders/ente.vert', FRAGMENT: './shaders/ente.frag'},
 
 });
 

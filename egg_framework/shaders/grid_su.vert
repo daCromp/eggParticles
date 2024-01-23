@@ -19,7 +19,7 @@ vec3 parametricSurface(vec2 uv, float verschiebung) {
 	float z = cos(uv[0] + verschiebung);
 
     return vec3(x,y,z);
-
+	// return vec3(uv, 0.0);
 }
 
 void main() {

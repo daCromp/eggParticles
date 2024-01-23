@@ -41,7 +41,7 @@ class Grid extends Mesh {
             positions: vertices,
             indices: indices,
             colors: colors,
-            primitiveType: gl.LINES_STRIP
+            primitiveType: gl.TRIANGLES
         });
     }
 }

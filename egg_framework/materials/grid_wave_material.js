@@ -8,12 +8,14 @@ class GridWaveMaterial extends Material {
 
         // ToDo add variables for the phase shift of the wave and the rotation of the wave front
 
+        this.verschiebung = 0.0;
     }
 
     bind() {
         super.bind();
 
         // ToDo set the shader uniform variables
+        this.program.setUniform('verschiebung', this.verschiebung);
 
     }
 

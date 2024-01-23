@@ -1,30 +1,25 @@
 
 uniform mat4 projectionMatrix;
 uniform mat4 modelViewMatrix;
+uniform float verschiebung;
 
-attribute vec3 vertexPosition;
-attribute vec4 vertexColor;
+in vec3 vertexPosition;
+in vec4 vertexColor;
 
-varying vec4 fragColor;
+
+out vec4 fragColor;
 
 #define PI radians(180.0)
 
-float a = 0.2;
-float b = 1.0;
-float c = 0.01;
-float n = 3.0;
+vec3 parametricSurface(vec2 uv, float verschiebung) {
 
-vec3 parametricSurface(vec2 uv) {
 
-	// ToDo
+	float x = uv[0];
+	float y = uv[1];
+	float z = cos(uv[0] + verschiebung) * 0.6;
 
-	float h = 1.0 - 0.5 * uv[1];
-	float x = a * h * cos(n * uv[1] * PI) * (1.0 + cos(uv[0] * PI)) + c * cos(n * uv[1] * PI);
-	float y = a * h * sin(n * uv[1] * PI) * (1.0 + cos(uv[0] * PI)) + c * sin(n * uv[1] * PI);
-	float z = b * 0.5 * uv[1] + a * h * sin(uv[1] * PI);
-
-    return vec3(uv, 0.0);
-
+    return vec3(x,y,z);
+	// return vec3(uv, 0.0);
 }
 
 void main() {
@@ -35,7 +30,7 @@ void main() {
 	// let opengl create sized points
 	gl_PointSize = 5.0;
 
-    vec3 newVertexPosition = parametricSurface(vertexPosition.xy);
+    vec3 newVertexPosition = parametricSurface(vertexPosition.xy, verschiebung);
 
 	// we are dealing with homogenuous 4x4 matrices, so we need to convert
 	// the vertex position to homogenuous form too

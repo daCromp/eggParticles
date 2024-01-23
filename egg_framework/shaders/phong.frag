@@ -26,13 +26,19 @@ vec3 phong(vec3 p, vec3 v, vec3 n, vec3 lp, vec3 lc) {
 	// derived vectors
 	// ToDo
 
+	vec3 toLight = normalize(lp - p);
+	vec3 reflectLight = reflect(-toLight, n);
+
 	// scalar products
 	// ToDo
 
+	float n_s = max(dot(toLight, n), 0.0);
+	float r_v = max(dot(reflectLight, v), 0.0);
+
 	// phong summands
 	vec3 ambi = material.ambient * ambientLight;
-	vec3 diff = vec3(0.0, 0.0, 0.0);//ToDo
-	vec3 spec = vec3(0.0, 0.0, 0.0);//ToDO
+	vec3 diff = material.diffuse * n_s * lc;
+	vec3 spec = material.specular * pow(r_v, material.shininess) * lc;
 
 
 	return  ambi + diff + spec; // phong sum

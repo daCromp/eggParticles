@@ -60,7 +60,7 @@ class Renderer3D extends Renderer{
                     program.setUniform("projectionMatrix", projectionMatrix);
                     program.setUniform("modelViewMatrix", modelViewMatrix);
 
-                    scene.bind(program);
+                    scene.bind(model, program);
 
                     model.render();
 

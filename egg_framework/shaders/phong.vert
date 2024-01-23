@@ -17,7 +17,7 @@ void main() {
 
 
 	// TODO: calculate the vertex normal in eye coordinates
-	ecNormal   = vertexNormal;
+	ecNormal   =  normalize(normalMatrix * vertexNormal);
 
 	// clip the vertex as usual
 	gl_Position = projectionMatrix * vec4(ecPosition, 1.0);
